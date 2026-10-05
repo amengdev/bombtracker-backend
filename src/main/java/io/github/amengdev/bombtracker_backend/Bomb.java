@@ -22,13 +22,17 @@ public class Bomb {
     @Column(nullable = false)
     private Instant receivedAt;
 
+    @Column(nullable = false)
+    private Instant expiresAt;
+
     protected Bomb() {}
 
-    public Bomb(String player, String type, String server, Instant receivedAt) {
+    public Bomb(String player, String type, String server, Instant receivedAt, Instant expiresAt) {
         this.player = player;
         this.type = type;
         this.server = server;
         this.receivedAt = receivedAt;
+        this.expiresAt = expiresAt;
     }
 
     public long getId() {
@@ -45,5 +49,8 @@ public class Bomb {
     }
     public Instant getReceivedAt() {
         return receivedAt;
+    }
+    public Instant getExpiresAt() {
+        return expiresAt;
     }
 }
